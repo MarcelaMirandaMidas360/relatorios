@@ -1,0 +1,45 @@
+import codecs
+
+with codecs.open('Relatorio_Executivo_Dr_Italo_3.html', 'r', 'utf-8') as f:
+    content = f.read()
+
+# Replace the list in Section 4 to include "Regiões de melhor performance" above the cities
+old_list = """                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-teal-400"><i class="fa-solid fa-globe"></i></div>
+                                <div>
+                                    <p class="text-white text-sm font-medium">Brasil Total (Online)</p>
+                                    <p class="text-slate-400 text-xs">Ampla cobertura via Telemedicina</p>
+                                </div>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-amber-400"><i class="fa-solid fa-star"></i></div>
+                                <div>
+                                    <p class="text-white text-sm font-medium">Porto Seguro / BA</p>
+                                </div>
+                            </li>"""
+
+new_list = """                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-teal-400"><i class="fa-solid fa-globe"></i></div>
+                                <div>
+                                    <p class="text-white text-sm font-medium">Brasil Total (Online)</p>
+                                    <p class="text-slate-400 text-xs">Ampla cobertura via Telemedicina</p>
+                                </div>
+                            </li>
+                            <li class="pt-2 border-t border-slate-700/60">
+                                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">Regiões de melhor performance</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-amber-400"><i class="fa-solid fa-star"></i></div>
+                                <div>
+                                    <p class="text-white text-sm font-medium">Porto Seguro / BA</p>
+                                </div>
+                            </li>"""
+
+content = content.replace(old_list, new_list)
+
+with codecs.open('Relatorio_Executivo_Dr_Italo_4.html', 'w', 'utf-8') as f:
+    f.write(content)
+
+print("Updated file saved successfully as Relatorio_Executivo_Dr_Italo_4.html")
