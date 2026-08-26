@@ -1,0 +1,16 @@
+file_path_v4 = "/mnt/data/relatorio_executivo_dr_italo_v4.html"
+file_path_v5 = "/mnt/data/relatorio_executivo_dr_italo_v5.html"
+
+with open(file_path_v4, "r", encoding="utf-8") as f:
+    html_content = f.read()
+
+# Substituir bg-slate-900 por bg-black no card da Seção 4 (Melhores Regiões)
+old_sec4_card = '<div class="col-span-1 card bg-slate-900 p-6 flex flex-col justify-center text-white relative overflow-hidden">'
+new_sec4_card = '<div class="col-span-1 card bg-black p-6 flex flex-col justify-center text-white relative overflow-hidden">'
+
+html_content = html_content.replace(old_sec4_card, new_sec4_card)
+
+with open(file_path_v5, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("Versão 5 criada com sucesso!")
