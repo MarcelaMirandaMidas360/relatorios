@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Executivo de Performance - Dr. Sérgio Coutinho Feijó</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59' },
+                        amber: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+                        slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 800: '#1e293b', 900: '#0f172a' },
+                        emerald: { 500: '#10b981', 600: '#059669' }
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+            body {
+                background-color: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .shadow-premium {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .print-break-inside-avoid {
+                page-break-inside: avoid;
+            }
+            .print-mt-8 {
+                margin-top: 2rem !important;
+            }
+            .grid-cols-5 {
+                grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            }
+            .lg\:col-span-1 {
+                grid-column: span 3 / span 3 !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-teal-200 selection:text-teal-900">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- CABEÇALHO PRINCIPAL -->
+        <header class="bg-white rounded-[2rem] p-8 shadow-premium border border-slate-200/60 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 print-break-inside-avoid">
+            <div class="flex items-center gap-6">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-teal-500/30 shrink-0">
+                    SF
+                </div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">Dr. Sérgio Coutinho Feijó</h1>
+                    <p class="text-teal-700 font-semibold text-lg flex items-center gap-2 mt-1">
+                        <i data-lucide="stethoscope" class="w-5 h-5"></i> Cirurgião Plástico
+                    </p>
+                    <p class="text-slate-500 text-sm mt-2 flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i> Período: 24/07/2026 a 24/08/2026
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
+                <div class="flex gap-3">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 text-blue-700 border border-blue-100 text-sm font-semibold">
+                        <i data-lucide="bar-chart" class="w-4 h-4"></i> Tráfego Pago / Google Ads
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 text-sm font-semibold">
+                        <i data-lucide="star" class="w-4 h-4 fill-emerald-500"></i> Doctoralia 5.0
+                    </span>
+                </div>
+                <button onclick="window.print()" class="no-print w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl font-medium transition-all shadow-lg shadow-slate-900/20 active:scale-95">
+                    <i data-lucide="printer" class="w-5 h-5"></i> Exportar PDF
+                </button>
+            </div>
+        </header>
+
+        <!-- SEÇÃO 1 - VISÃO GERAL GOOGLE ADS (5 KPI Cards) -->
+        <section class="print-break-inside-avoid">
+            <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="activity" class="w-6 h-6 text-teal-600"></i>
+                <h2 class="text-xl font-bold text-slate-800">Visão Geral de Desempenho</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+                <!-- Card 1: Impressões -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-slate-200/60 relative overflow-hidden group hover:border-teal-300 transition-colors">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="eye" class="w-16 h-16 text-teal-600"></i>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm mb-1">Impressões Totais</p>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-2">11.380</h3>
+                    <p class="text-xs text-slate-400 leading-tight">Exibições a respeito da sua especialidade no Google.</p>
+                </div>
+
+                <!-- Card 2: Cliques -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-slate-200/60 relative overflow-hidden group hover:border-teal-300 transition-colors">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="mouse-pointer-click" class="w-16 h-16 text-teal-600"></i>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm mb-1">Cliques Diretos</p>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-2">496</h3>
+                    <p class="text-xs text-slate-400 leading-tight">Tráfego direcionado para o perfil Doctoralia.</p>
+                </div>
+
+                <!-- Card 3: CTR -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-amber-200 bg-gradient-to-b from-white to-amber-50/30 relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-1">
+                        <p class="text-slate-600 font-medium text-sm">CTR Consolidado</p>
+                        <span class="flex h-3 w-3 relative">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                        </span>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-amber-600 mb-2">4,36%</h3>
+                    <div class="inline-flex items-center gap-1 px-2 py-1 bg-amber-100 text-amber-800 rounded-md text-[10px] font-bold uppercase tracking-wider">
+                        Média do Setor: 3,17%
+                    </div>
+                </div>
+
+                <!-- Card 4: Doctoralia % -->
+                <div class="bg-teal-600 rounded-[2rem] p-6 shadow-premium shadow-teal-600/20 text-white relative overflow-hidden lg:col-span-1 md:col-span-2">
+                    <div class="absolute -right-6 -bottom-6 opacity-20">
+                        <i data-lucide="stethoscope" class="w-32 h-32"></i>
+                    </div>
+                    <p class="text-teal-100 font-medium text-sm mb-1">Perfil Doctoralia</p>
+                    <h3 class="text-3xl font-extrabold text-white mb-2">521 <span class="text-sm font-medium text-teal-200">acessos</span></h3>
+                    <div class="mt-3 bg-teal-800/50 backdrop-blur-sm rounded-xl p-2.5 border border-teal-500/50">
+                        <p class="text-xs font-semibold text-teal-50 leading-tight text-center">
+                            🔥 95,20% dos acessos foram originados do Google Ads!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 5: Telefone -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-slate-200/60 relative overflow-hidden group hover:border-emerald-300 transition-colors">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="phone-call" class="w-16 h-16 text-emerald-600"></i>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm mb-1">Cliques no Telefone</p>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-2">58</h3>
+                    <p class="text-xs text-slate-400 leading-tight">Contatos que chegaram até sua secretária via Ads.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2 - BENCHMARKING DE ATRATIVIDADE & SHARE OF VOICE -->
+        <section class="print-break-inside-avoid print-mt-8">
+            <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="trending-up" class="w-6 h-6 text-teal-600"></i>
+                <h2 class="text-xl font-bold text-slate-800">Benchmarking de Atratividade & Share of Voice</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Gráfico Chart.js -->
+                <div class="lg:col-span-2 bg-white rounded-[2rem] p-8 shadow-premium border border-slate-200/60 flex flex-col justify-center">
+                    <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-6 text-center">Taxa de Cliques (CTR) vs. Concorrência</h3>
+                    <div class="relative h-64 w-full">
+                        <canvas id="ctrChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Destaques Dominância -->
+                <div class="bg-slate-900 rounded-[2rem] p-8 shadow-premium text-white flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i data-lucide="award" class="w-32 h-32"></i>
+                    </div>
+                    <h3 class="text-teal-400 font-semibold mb-6 flex items-center gap-2">
+                        <i data-lucide="zap" class="w-5 h-5"></i> Dominância em Leilões
+                    </h3>
+                    
+                    <div class="space-y-6 relative z-10">
+                        <div>
+                            <p class="text-slate-400 text-sm mb-1">Exibição em Parte Superior (Top Page)</p>
+                            <div class="flex items-end gap-3">
+                                <span class="text-4xl font-extrabold">67,21%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-3">
+                                <div class="bg-teal-500 h-1.5 rounded-full" style="width: 67.2%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-slate-800">
+                            <p class="text-slate-400 text-sm mb-1">1ª Posição Absoluta</p>
+                            <div class="flex items-end gap-3">
+                                <span class="text-4xl font-extrabold text-amber-400">25,20%</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-3">
+                                <div class="bg-amber-400 h-1.5 rounded-full" style="width: 25.2%"></div>
+                            </div>
+                            <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                                Em 25,2% das vezes, seu anúncio apareceu <strong>acima de todos os concorrentes</strong> (dados baseados na média ponderada).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3 - ESTRUTURA DE CAMPANHAS -->
+        <section class="print-break-inside-avoid print-mt-8">
+            <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="layers" class="w-6 h-6 text-teal-600"></i>
+                <h2 class="text-xl font-bold text-slate-800">Desempenho por Campanhas</h2>
+            </div>
+            
+            <div class="bg-white rounded-[2rem] shadow-premium border border-slate-200/60 overflow-hidden">
+                <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-200 text-sm font-semibold text-slate-600">
+                                <th class="p-5 pl-8 whitespace-nowrap">Campanha</th>
+                                <th class="p-5 whitespace-nowrap">Impressões</th>
+                                <th class="p-5 whitespace-nowrap">Cliques</th>
+                                <th class="p-5 whitespace-nowrap">CTR</th>
+                                <th class="p-5 whitespace-nowrap">CPC Médio</th>
+                                <th class="p-5 whitespace-nowrap">Topo Pg.</th>
+                                <th class="p-5 whitespace-nowrap">1ª Pos. Abs.</th>
+                                <th class="p-5 pr-8 whitespace-nowrap text-teal-600">Parcela Impr.</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            <tr class="hover:bg-slate-50/50 transition-colors">
+                                <td class="p-5 pl-8 font-medium text-slate-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-teal-500"></div> SN-Spec-brasilia [287570]
+                                </td>
+                                <td class="p-5 text-slate-600">11.365</td>
+                                <td class="p-5 text-slate-600">495</td>
+                                <td class="p-5 font-semibold text-slate-900">4,36%</td>
+                                <td class="p-5 text-slate-600">R$ 3,97</td>
+                                <td class="p-5 text-slate-600">67,20%</td>
+                                <td class="p-5 text-slate-600">25,20%</td>
+                                <td class="p-5 pr-8 font-bold text-teal-600 bg-teal-50/30">16,13%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors">
+                                <td class="p-5 pl-8 font-medium text-slate-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-amber-500"></div> SN-Name [287570]
+                                </td>
+                                <td class="p-5 text-slate-600">11</td>
+                                <td class="p-5 text-slate-600">1</td>
+                                <td class="p-5 font-semibold text-slate-900">9,09%</td>
+                                <td class="p-5 text-slate-600">R$ 0,66</td>
+                                <td class="p-5 text-slate-600">80,00%</td>
+                                <td class="p-5 text-slate-600">40,00%</td>
+                                <td class="p-5 pr-8 font-bold text-teal-600 bg-teal-50/30">66,67%</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors">
+                                <td class="p-5 pl-8 font-medium text-slate-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-slate-400"></div> SN-Services-brasilia [287570]
+                                </td>
+                                <td class="p-5 text-slate-600">4</td>
+                                <td class="p-5 text-slate-600">0</td>
+                                <td class="p-5 font-semibold text-slate-900">0,00%</td>
+                                <td class="p-5 text-slate-600">--</td>
+                                <td class="p-5 text-slate-600">50,00%</td>
+                                <td class="p-5 text-slate-600">0,00%</td>
+                                <td class="p-5 pr-8 font-bold text-teal-600 bg-teal-50/30">< 10%</td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="bg-slate-900 text-white font-semibold">
+                            <tr>
+                                <td class="p-5 pl-8 rounded-bl-[2rem]">Total Consolidado</td>
+                                <td class="p-5">11.380</td>
+                                <td class="p-5">496</td>
+                                <td class="p-5 text-amber-400">4,36%</td>
+                                <td class="p-5">R$ 3,96</td>
+                                <td class="p-5">67,21%</td>
+                                <td class="p-5">25,20%</td>
+                                <td class="p-5 pr-8 rounded-br-[2rem] text-teal-400">-</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5 - AUTORIDADE & PROVA SOCIAL (DOCTORALIA) -->
+        <section class="print-break-inside-avoid print-mt-8">
+            <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="shield-check" class="w-6 h-6 text-teal-600"></i>
+                <h2 class="text-xl font-bold text-slate-800">Autoridade & Prova Social na Doctoralia</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-slate-200/60 flex flex-col items-center justify-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center mb-4">
+                        <i data-lucide="star" class="w-8 h-8 fill-emerald-500"></i>
+                    </div>
+                    <h3 class="text-4xl font-extrabold text-slate-900 mb-1">92</h3>
+                    <p class="text-slate-500 font-medium text-sm">Avaliações Validadas</p>
+                    <div class="mt-4 inline-flex items-center gap-1 bg-slate-100 px-3 py-1.5 rounded-lg">
+                        <span class="font-bold text-slate-700">Nota Média:</span>
+                        <span class="font-extrabold text-emerald-600">5.0</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-teal-50/50 rounded-[2rem] p-6 shadow-premium border border-teal-100 flex flex-col justify-center">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="p-2 bg-teal-100 rounded-lg text-teal-700"><i data-lucide="message-circle" class="w-5 h-5"></i></div>
+                        <h4 class="font-bold text-slate-800">Atualizações no Período</h4>
+                    </div>
+                    <div class="flex items-end gap-2 mb-4">
+                        <span class="text-3xl font-extrabold text-teal-700">+1</span>
+                        <span class="text-sm text-teal-600 font-medium mb-1">Nova Opinião</span>
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed bg-white p-3 rounded-xl border border-teal-100 italic">
+                        "Sabemos que mais de 70% dos pacientes que entram no perfil do médico olham esta seção, sendo fundamental manter a constância no recebimento de opiniões."
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-slate-200/60 flex flex-col justify-between">
+                    <div>
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">SINERGIA DE TRÁFEGO PAGO</p>
+                        <h3 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-2">95,2%</h3>
+                        <p class="text-sm font-medium text-slate-600 leading-snug mb-6">
+                            dos acessos ao perfil na Doctoralia vieram diretamente dos anúncios do Google Ads.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100">
+                        <div class="flex items-start gap-2.5 text-xs font-medium text-slate-700 leading-relaxed">
+                            <i data-lucide="zap" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
+                            <span>A combinação <strong>Ads + Doctoralia</strong> reduz significativamente a hesitação do paciente antes de agendar.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RODAPÉ CORPORATIVO -->
+        <footer class="pt-8 pb-4 text-center print-break-inside-avoid">
+            <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-6"></div>
+            <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-2">
+                <i data-lucide="compass" class="w-4 h-4"></i> Mídias 360 &bull; Doctoralia Partner
+            </p>
+            <p class="text-xs text-slate-400 mt-2">Consultoria de Performance e Inteligência de Marketing Médico</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    
+    <script>
+        lucide.createIcons();
+        Chart.register(ChartDataLabels);
+        
+        const ctx = document.getElementById('ctrChart').getContext('2d');
+        const ctrChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Média do Setor (Saúde)', 'Dr. Sérgio Feijó (Sua Performance)'],
+                datasets: [{
+                    label: 'CTR (%)',
+                    data: [3.17, 4.36],
+                    backgroundColor: ['#e2e8f0', '#14b8a6'],
+                    borderRadius: 8,
+                    borderSkipped: false,
+                    barThickness: 60
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#0f172a',
+                        padding: 12,
+                        titleFont: { family: "'Plus Jakarta Sans', sans-serif", size: 13 },
+                        bodyFont: { family: "'Plus Jakarta Sans', sans-serif", size: 14, weight: 'bold' },
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) { return context.parsed.y + '%'; }
+                        }
+                    },
+                    datalabels: {
+                        color: ['#64748b', '#ffffff'],
+                        anchor: 'end',
+                        align: 'bottom',
+                        offset: 10,
+                        font: { family: "'Plus Jakarta Sans', sans-serif", weight: 'bold', size: 16 },
+                        formatter: function(value) { return value + '%'; }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 6,
+                        grid: { color: '#f1f5f9', drawBorder: false },
+                        ticks: {
+                            font: { family: "'Plus Jakarta Sans', sans-serif" },
+                            color: '#94a3b8',
+                            callback: function(value) { return value + '%'; }
+                        },
+                        border: { display: false }
+                    },
+                    x: {
+                        grid: { display: false, drawBorder: false },
+                        ticks: {
+                            font: { family: "'Plus Jakarta Sans', sans-serif", weight: '600' },
+                            color: '#475569'
+                        },
+                        border: { display: false }
+                    }
+                },
+                animation: { duration: 1500, easing: 'easeOutQuart' }
+            }
+        });
+    </script>
+</body>
+</html>
