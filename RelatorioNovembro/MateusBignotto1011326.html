@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Consolidado de Performance & Retenção - Dr. Mateus Bignotto Bortolozzo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: { 50: '#f0fdfa', 100: '#ccfbf1', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a' },
+                        amber: { 50: '#fffbeb', 100: '#fef3c7', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+                        slate: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 700: '#334155', 800: '#1e293b', 900: '#0f172a' },
+                        emerald: { 50: '#ecfdf5', 100: '#d1fae5', 500: '#10b981', 600: '#059669', 700: '#047857' },
+                        rose: { 50: '#fff1f2', 100: '#ffe4e6', 500: '#f43f5e', 600: '#e11d48' }
+                    },
+                    boxShadow: {
+                        'premium': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'card-hover': '0 14px 30px rgba(15, 23, 42, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm;
+            }
+            body {
+                background-color: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .shadow-premium {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .print-break-inside-avoid {
+                page-break-inside: avoid;
+            }
+            .print-mt-6 {
+                margin-top: 1.5rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-teal-200 selection:text-teal-900">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+        <!-- CABEÇALHO EXECUTIVO -->
+        <header class="bg-white rounded-[2rem] p-8 shadow-premium border border-slate-200/60 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 print-break-inside-avoid">
+            <div class="flex items-center gap-6">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-teal-500/30 shrink-0">
+                    MB
+                </div>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="px-2.5 py-0.5 rounded-full bg-teal-50 text-teal-700 text-xs font-bold uppercase tracking-wider border border-teal-200">
+                            Doctoralia M360 • Relatório Histórico
+                        </span>
+                        <span class="text-xs text-slate-400 font-medium">ID Médico: 865872</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">Dr. Mateus Bignotto Bortolozzo</h1>
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-600 mt-2">
+                        <span class="font-semibold text-teal-700 flex items-center gap-1.5">
+                            <i data-lucide="stethoscope" class="w-4 h-4"></i> Psiquiatra
+                        </span>
+                        <span>&bull;</span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> Campinas - SP
+                        </span>
+                        <span>&bull;</span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="w-4 h-4 text-slate-400"></i> Período: <strong>16/03/2026 a 09/11/2026</strong>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
+                <div class="text-right hidden sm:block">
+                    <p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Assessoria M360</p>
+                    <p class="text-sm font-bold text-slate-800">Marcela Miranda</p>
+                    <p class="text-xs text-emerald-600 font-semibold mt-0.5">76 Opiniões Validadas (Nota 5.0)</p>
+                </div>
+                <button onclick="window.print()" class="no-print w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl font-medium transition-all shadow-lg shadow-slate-900/20 active:scale-95">
+                    <i data-lucide="printer" class="w-5 h-5"></i> Exportar PDF
+                </button>
+            </div>
+        </header>
+
+        <!-- BANNER ESTRATÉGICO DE IMPACTO ACUMULADO -->
+        <section class="bg-gradient-to-r from-slate-900 via-teal-950 to-slate-900 rounded-[2rem] p-8 shadow-premium text-white relative overflow-hidden print-break-inside-avoid">
+            <div class="absolute -right-8 -bottom-8 opacity-10">
+                <i data-lucide="trending-up" class="w-64 h-64"></i>
+            </div>
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div>
+                    <p class="text-teal-300 text-xs font-bold uppercase tracking-wider mb-1">Impacto Geral Desde o Início</p>
+                    <h3 class="text-3xl md:text-4xl font-black text-white">4.389</h3>
+                    <p class="text-slate-300 text-xs mt-1">Pacientes qualificados direcionados ao seu perfil em Campinas.</p>
+                </div>
+                <div>
+                    <p class="text-teal-300 text-xs font-bold uppercase tracking-wider mb-1">Crescimento no Telefone</p>
+                    <h3 class="text-3xl md:text-4xl font-black text-amber-400">+800%</h3>
+                    <p class="text-slate-300 text-xs mt-1">De 7 contatos/mês (antes) para <strong>63 contatos no último mês</strong>.</p>
+                </div>
+                <div>
+                    <p class="text-teal-300 text-xs font-bold uppercase tracking-wider mb-1">Agendamentos Totais</p>
+                    <h3 class="text-3xl md:text-4xl font-black text-white">260</h3>
+                    <p class="text-slate-300 text-xs mt-1">Consultas agendadas (com <strong>90 apenas no último mês</strong>).</p>
+                </div>
+                <div>
+                    <p class="text-teal-300 text-xs font-bold uppercase tracking-wider mb-1">Dependência do Google Ads</p>
+                    <h3 class="text-3xl md:text-4xl font-black text-teal-400">74,2%</h3>
+                    <p class="text-slate-300 text-xs mt-1">Do seu tráfego total na Doctoralia é sustentado pelos anúncios.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 1 - KPIS DO GOOGLE ADS (DESDE O INÍCIO) -->
+        <section class="print-break-inside-avoid">
+            <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="activity" class="w-6 h-6 text-teal-600"></i>
+                <h2 class="text-xl font-bold text-slate-800">Alcance & Performance Global do Google Ads</h2>
+                <span class="text-xs text-slate-500 font-medium">(Março a Novembro de 2026)</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+                <!-- Card 1: Impressões -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-slate-200/60 relative overflow-hidden group hover:border-teal-300 transition-colors">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="eye" class="w-16 h-16 text-teal-600"></i>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm mb-1">Impressões Totais</p>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-2">77.211</h3>
+                    <p class="text-xs text-slate-400 leading-tight">Exibições de anúncio para pacientes pesquisando psiquiatria.</p>
+                </div>
+
+                <!-- Card 2: Cliques -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-slate-200/60 relative overflow-hidden group hover:border-teal-300 transition-colors">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="mouse-pointer-click" class="w-16 h-16 text-teal-600"></i>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm mb-1">Cliques no Anúncio</p>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-2">4.389</h3>
+                    <p class="text-xs text-slate-400 leading-tight">Pacientes que entraram diretamente na sua página.</p>
+                </div>
+
+                <!-- Card 3: CTR -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-amber-200 bg-gradient-to-b from-white to-amber-50/30 relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-1">
+                        <p class="text-slate-600 font-medium text-sm">CTR Consolidado</p>
+                        <span class="flex h-3 w-3 relative">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                        </span>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-amber-600 mb-2">5,68%</h3>
+                    <div class="inline-flex items-center gap-1 px-2 py-1 bg-amber-100 text-amber-800 rounded-md text-[10px] font-bold uppercase tracking-wider">
+                        +79% acima da Média Google (3,17%)
+                    </div>
+                </div>
+
+                <!-- Card 4: Impressões Chamadas -->
+                <div class="bg-teal-600 rounded-[2rem] p-6 shadow-premium shadow-teal-600/20 text-white relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 opacity-20">
+                        <i data-lucide="phone-forwarded" class="w-24 h-24"></i>
+                    </div>
+                    <p class="text-teal-100 font-medium text-sm mb-1">Exibição de Chamada</p>
+                    <h3 class="text-3xl font-extrabold text-white mb-2">18.306</h3>
+                    <p class="text-xs text-teal-100 leading-tight">Vezes que a opção de ligar direto para o consultório apareceu.</p>
+                </div>
+
+                <!-- Card 5: CPC Médio -->
+                <div class="bg-white rounded-[2rem] p-6 shadow-premium border border-slate-200/60 relative overflow-hidden group hover:border-emerald-300 transition-colors">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="badge-dollar-sign" class="w-16 h-16 text-emerald-600"></i>
+                    </div>
+                    <p class="text-slate-500 font-medium text-sm mb-1">CPC Médio Pago</p>
+                    <h3 class="text-3xl font-extrabold text-slate-900 mb-2">R$ 2,75</h3>
+                    <p class="text-xs text-slate-400 leading-tight">Custo altamente competitivo para a praça de Campinas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2 - O HISTÓRICO MÊS A MÊS (COMPARATIVO HISTÓRICO COM AGENDAMENTOS DETALHADOS) -->
+        <section class="print-break-inside-avoid print-mt-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="table-properties" class="w-6 h-6 text-teal-600"></i>
+                        <h2 class="text-xl font-bold text-slate-800">Evolução Mensal: Prévio ao Mídias vs. Gestão Ativa</h2>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">
+                        Demonstrativo claro do salto de demanda desde a entrada da mídia paga Doctoralia.
+                    </p>
+                </div>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-teal-50 border border-teal-200 text-teal-800 text-xs font-semibold">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-600"></i>
+                    Agendamentos divididos por: <strong>Totais Realizados</strong> e <strong>Online</strong>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-[2rem] shadow-premium border border-slate-200/60 overflow-hidden">
+                <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-wider">
+                                <th class="p-4 pl-6 whitespace-nowrap">Métrica de Performance</th>
+                                <th class="p-4 whitespace-nowrap text-slate-400 bg-slate-100/70 text-center">Prévio ao Mídias</th>
+                                <th class="p-4 whitespace-nowrap text-center">06/04 - 06/05</th>
+                                <th class="p-4 whitespace-nowrap text-center">07/05 - 07/06</th>
+                                <th class="p-4 whitespace-nowrap text-center">08/06 - 08/07</th>
+                                <th class="p-4 whitespace-nowrap text-center">09/07 - 09/08</th>
+                                <th class="p-4 whitespace-nowrap text-center">10/09 - 10/10</th>
+                                <th class="p-4 pr-6 whitespace-nowrap text-center bg-teal-50/60 text-teal-900 font-extrabold">11/10 - 09/11 (Recente)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            <!-- Linha 1: Tráfego Total -->
+                            <tr class="hover:bg-slate-50/60 transition-colors">
+                                <td class="p-4 pl-6 font-semibold text-slate-900 flex items-center gap-2">
+                                    <i data-lucide="eye" class="w-4 h-4 text-slate-400"></i> Visualizações Totais do Perfil
+                                </td>
+                                <td class="p-4 text-center font-bold text-slate-500 bg-slate-100/50">309</td>
+                                <td class="p-4 text-center text-slate-700 font-semibold">972</td>
+                                <td class="p-4 text-center text-slate-700">722</td>
+                                <td class="p-4 text-center text-slate-700">741</td>
+                                <td class="p-4 text-center text-slate-700">709</td>
+                                <td class="p-4 text-center text-slate-700">734</td>
+                                <td class="p-4 pr-6 text-center font-bold text-teal-700 bg-teal-50/30">698</td>
+                            </tr>
+                            
+                            <!-- Linha 2: Tráfego Google Ads -->
+                            <tr class="hover:bg-slate-50/60 transition-colors">
+                                <td class="p-4 pl-6 font-semibold text-slate-900 flex items-center gap-2">
+                                    <i data-lucide="navigation" class="w-4 h-4 text-teal-500"></i> Tráfego Exclusivo do Google Ads
+                                </td>
+                                <td class="p-4 text-center text-slate-400 bg-slate-100/50 italic">-</td>
+                                <td class="p-4 text-center font-medium text-teal-700">791</td>
+                                <td class="p-4 text-center font-medium text-teal-700">513</td>
+                                <td class="p-4 text-center font-medium text-teal-700">528</td>
+                                <td class="p-4 text-center font-medium text-teal-700">496</td>
+                                <td class="p-4 text-center font-medium text-teal-700">579</td>
+                                <td class="p-4 pr-6 text-center font-bold text-teal-800 bg-teal-50/30">488</td>
+                            </tr>
+
+                            <!-- Linha 3: AGENDAMENTOS (FORMATADO DE FORMA CLARA CONFORME SOLICITADO) -->
+                            <tr class="bg-amber-50/40 hover:bg-amber-50/70 transition-colors border-y border-amber-200/60">
+                                <td class="p-4 pl-6 font-bold text-amber-950 flex flex-col">
+                                    <span class="flex items-center gap-2">
+                                        <i data-lucide="calendar-check" class="w-4 h-4 text-amber-600"></i> Agendamentos dos Pacientes
+                                    </span>
+                                    <span class="text-[11px] font-normal text-amber-800 ml-6">Formato: <strong>Total Geral (Sendo Online)</strong></span>
+                                </td>
+                                <td class="p-4 text-center bg-slate-100/60 font-semibold text-slate-600">
+                                    15 <span class="text-xs text-slate-400 font-normal">(13 online)</span>
+                                </td>
+                                <td class="p-4 text-center font-medium text-slate-800">
+                                    14 <span class="text-xs text-slate-500 font-normal">(14 online)</span>
+                                </td>
+                                <td class="p-4 text-center font-medium text-slate-800">
+                                    13 <span class="text-xs text-slate-500 font-normal">(13 online)</span>
+                                </td>
+                                <td class="p-4 text-center font-bold text-emerald-700 bg-emerald-50/30">
+                                    77 <span class="text-xs text-emerald-600 font-normal">(37 online)</span>
+                                </td>
+                                <td class="p-4 text-center font-medium text-slate-800">
+                                    59 <span class="text-xs text-slate-500 font-normal">(15 online)</span>
+                                </td>
+                                <td class="p-4 text-center font-medium text-slate-800">
+                                    7 <span class="text-xs text-slate-500 font-normal">(7 online)</span>
+                                </td>
+                                <td class="p-4 pr-6 text-center font-black text-amber-900 bg-amber-100/50">
+                                    90 <span class="text-xs text-amber-800 font-bold">(5 online)</span>
+                                </td>
+                            </tr>
+
+                            <!-- Linha 4: Pacientes Novos -->
+                            <tr class="hover:bg-slate-50/60 transition-colors">
+                                <td class="p-4 pl-6 font-semibold text-slate-900 flex items-center gap-2">
+                                    <i data-lucide="user-plus" class="w-4 h-4 text-slate-400"></i> Pacientes Novos Cadastrados
+                                </td>
+                                <td class="p-4 text-center text-slate-500 bg-slate-100/50 font-medium">6</td>
+                                <td class="p-4 text-center text-slate-700">6</td>
+                                <td class="p-4 text-center text-slate-700">6</td>
+                                <td class="p-4 text-center text-emerald-600 font-bold">14</td>
+                                <td class="p-4 text-center text-slate-700">6</td>
+                                <td class="p-4 text-center text-slate-700">4</td>
+                                <td class="p-4 pr-6 text-center text-slate-700 bg-teal-50/30 font-semibold">3</td>
+                            </tr>
+
+                            <!-- Linha 5: Agendamentos ADS -->
+                            <tr class="hover:bg-slate-50/60 transition-colors">
+                                <td class="p-4 pl-6 font-semibold text-slate-900 flex items-center gap-2">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i> Agendamentos Diretos via Ads
+                                </td>
+                                <td class="p-4 text-center text-slate-400 bg-slate-100/50 italic">-</td>
+                                <td class="p-4 text-center text-slate-700">3</td>
+                                <td class="p-4 text-center text-slate-700">3</td>
+                                <td class="p-4 text-center text-slate-700">3</td>
+                                <td class="p-4 text-center font-bold text-amber-600">6</td>
+                                <td class="p-4 text-center text-slate-700">2</td>
+                                <td class="p-4 pr-6 text-center font-bold text-teal-700 bg-teal-50/30">4</td>
+                            </tr>
+
+                            <!-- Linha 6: CLIQUES NO TELEFONE (CRESCIMENTO CRUCIAL) -->
+                            <tr class="bg-emerald-50/30 hover:bg-emerald-50/60 transition-colors">
+                                <td class="p-4 pl-6 font-bold text-emerald-950 flex items-center gap-2">
+                                    <i data-lucide="phone-call" class="w-4 h-4 text-emerald-600"></i> Contatos no Telefone (Recepção)
+                                </td>
+                                <td class="p-4 text-center text-rose-600 bg-rose-50/50 font-bold">7</td>
+                                <td class="p-4 text-center text-emerald-700 font-semibold">39</td>
+                                <td class="p-4 text-center text-emerald-700 font-semibold">45</td>
+                                <td class="p-4 text-center text-emerald-700 font-semibold">47</td>
+                                <td class="p-4 text-center text-emerald-700 font-semibold">53</td>
+                                <td class="p-4 text-center text-emerald-700 font-semibold">55</td>
+                                <td class="p-4 pr-6 text-center font-black text-emerald-700 bg-emerald-100/50 text-base">
+                                    63 <span class="text-[10px] text-emerald-800 font-bold block">(+800%)</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3 - DOMÍNIO DE LEILÃO & CTR COMPARATIVO -->
+        <section class="print-break-inside-avoid print-mt-6">
+            <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="trending-up" class="w-6 h-6 text-teal-600"></i>
+                <h2 class="text-xl font-bold text-slate-800">Competitividade nos Leilões em Campinas</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Gráfico de CTR Chart.js -->
+                <div class="lg:col-span-2 bg-white rounded-[2rem] p-8 shadow-premium border border-slate-200/60 flex flex-col justify-center">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider">Atratividade dos Anúncios (CTR)</h3>
+                        <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-1 rounded-md">Alta Relevância</span>
+                    </div>
+                    <div class="relative h-64 w-full">
+                        <canvas id="ctrChart"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-4 text-center">
+                        O CTR de <strong>5,68%</strong> comprova que o público que pesquisa por psiquiatria em Campinas escolhe clicar preferencialmente no anúncio do Dr. Mateus.
+                    </p>
+                </div>
+
+                <!-- Card de Domínio de Leilão -->
+                <div class="bg-slate-900 rounded-[2rem] p-8 shadow-premium text-white flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i data-lucide="award" class="w-32 h-32"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-teal-400 font-semibold mb-6 flex items-center gap-2">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i> Posicionamento nos Resultados
+                        </h3>
+                        
+                        <div class="space-y-5">
+                            <div>
+                                <p class="text-slate-400 text-xs mb-1">Três Primeiras Posições no Google</p>
+                                <span class="text-3xl font-extrabold text-white">59,96%</span>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5 mt-2">
+                                    <div class="bg-teal-400 h-1.5 rounded-full" style="width: 59.96%"></div>
+                                </div>
+                                <p class="text-[11px] text-slate-400 mt-1">Em 6 de cada 10 buscas, seu nome está no topo absoluto.</p>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-800">
+                                <p class="text-slate-400 text-xs mb-1">1ª Posição Absoluta (Topo da Página)</p>
+                                <span class="text-3xl font-extrabold text-amber-400">24,36%</span>
+                                <div class="w-full bg-slate-800 rounded-full h-1.5 mt-2">
+                                    <div class="bg-amber-400 h-1.5 rounded-full" style="width: 24.36%"></div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-800">
+                                <p class="text-slate-400 text-xs mb-1">Parcela de Buscas Capturadas no Google</p>
+                                <span class="text-2xl font-bold text-teal-300">28,25%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-800/80">
+                        <p class="text-xs text-slate-300 leading-relaxed italic">
+                            "Um posicionamento que impediu a concorrência direta em Campinas de capturar esses 4.389 pacientes."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4 - PALAVRAS-CHAVE COM MAIOR DESEMPENHO -->
+        <section class="print-break-inside-avoid print-mt-6">
+            <div class="flex items-center gap-2 mb-6">
+                <i data-lucide="key-round" class="w-6 h-6 text-teal-600"></i>
+                <h2 class="text-xl font-bold text-slate-800">Termos de Maior Retorno & Intenção de Agendamento</h2>
+            </div>
+            
+            <div class="bg-white rounded-[2rem] shadow-premium border border-slate-200/60 overflow-hidden">
+                <div class="overflow-x-auto no-scrollbar">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-wider">
+                                <th class="p-4 pl-6 whitespace-nowrap">Palavra-Chave Estratégica</th>
+                                <th class="p-4 whitespace-nowrap">Impressões</th>
+                                <th class="p-4 whitespace-nowrap">Cliques</th>
+                                <th class="p-4 whitespace-nowrap">CTR</th>
+                                <th class="p-4 pr-6 whitespace-nowrap text-right">CPC Médio</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            <tr class="hover:bg-slate-50/50 transition-colors">
+                                <td class="p-4 pl-6 font-bold text-slate-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-teal-500"></div> psiquiatra campinas
+                                </td>
+                                <td class="p-4 text-slate-600">53.615</td>
+                                <td class="p-4 font-bold text-teal-700">2.826</td>
+                                <td class="p-4 text-slate-800 font-semibold">5,27%</td>
+                                <td class="p-4 pr-6 text-right font-medium text-slate-700">R$ 3,10</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors">
+                                <td class="p-4 pl-6 font-bold text-slate-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-teal-500"></div> psiquiatria
+                                </td>
+                                <td class="p-4 text-slate-600">14.114</td>
+                                <td class="p-4 font-bold text-teal-700">952</td>
+                                <td class="p-4 text-slate-800 font-semibold">6,75%</td>
+                                <td class="p-4 pr-6 text-right font-medium text-slate-700">R$ 2,17</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors">
+                                <td class="p-4 pl-6 font-medium text-slate-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-teal-400"></div> psiquiatria campinas
+                                </td>
+                                <td class="p-4 text-slate-600">2.052</td>
+                                <td class="p-4 font-semibold text-slate-800">128</td>
+                                <td class="p-4 text-slate-800 font-semibold">6,24%</td>
+                                <td class="p-4 pr-6 text-right font-medium text-slate-700">R$ 2,85</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors bg-teal-50/20">
+                                <td class="p-4 pl-6 font-bold text-teal-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-amber-500"></div> mateus bignotto bortolozzo <span class="text-[10px] bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold">Branding</span>
+                                </td>
+                                <td class="p-4 text-slate-600">1.447</td>
+                                <td class="p-4 font-bold text-amber-700">86</td>
+                                <td class="p-4 text-slate-800 font-semibold">5,94%</td>
+                                <td class="p-4 pr-6 text-right font-bold text-emerald-700">R$ 0,68</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors">
+                                <td class="p-4 pl-6 font-medium text-slate-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-slate-400"></div> clinica psiquiatrica campinas
+                                </td>
+                                <td class="p-4 text-slate-600">897</td>
+                                <td class="p-4 text-slate-700">39</td>
+                                <td class="p-4 text-slate-700">4,35%</td>
+                                <td class="p-4 pr-6 text-right font-medium text-slate-700">R$ 3,38</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors bg-emerald-50/30">
+                                <td class="p-4 pl-6 font-bold text-emerald-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-emerald-600"></div> especialista em tea adulto <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Super Nicho</span>
+                                </td>
+                                <td class="p-4 text-slate-600">343</td>
+                                <td class="p-4 font-bold text-emerald-700">75</td>
+                                <td class="p-4 text-emerald-700 font-extrabold">21,87% 🔥</td>
+                                <td class="p-4 pr-6 text-right font-bold text-emerald-700">R$ 1,27</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/50 transition-colors">
+                                <td class="p-4 pl-6 font-medium text-slate-900 flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-slate-400"></div> especialista tdah
+                                </td>
+                                <td class="p-4 text-slate-600">349</td>
+                                <td class="p-4 text-slate-700">27</td>
+                                <td class="p-4 text-slate-700 font-semibold">7,74%</td>
+                                <td class="p-4 pr-6 text-right font-medium text-slate-700">R$ 1,17</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5 - ANÁLISE DE IMPACTO EM CASO DE CANCELAMENTO (RETENÇÃO / ANTI-CHURN) -->
+        <section class="print-break-inside-avoid print-mt-6">
+            <div class="bg-gradient-to-br from-white to-rose-50/40 rounded-[2rem] p-8 shadow-premium border border-rose-200/80">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">O Que Acontece com o Consultório se Desligar o Google Ads?</h2>
+                        <p class="text-xs text-rose-700 font-semibold mt-0.5">Diagnóstico de risco e impacto direto de receita</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-rose-100 shadow-sm">
+                        <div class="flex items-center gap-2 text-rose-600 font-bold text-sm mb-2">
+                            <i data-lucide="trending-down" class="w-4 h-4"></i> Queda de 74,2% nas Visitas
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            O tráfego médio cairá de <strong>~760 visitas/mês</strong> para o nível prévio de apenas <strong>309 visualizações</strong>. Três em cada quatro pacientes deixarão de encontrar o seu perfil.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-rose-100 shadow-sm">
+                        <div class="flex items-center gap-2 text-rose-600 font-bold text-sm mb-2">
+                            <i data-lucide="phone-off" class="w-4 h-4"></i> Telefone Volta a 7 Ligações/Mês
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            O consultório alcançou <strong>63 contatos telefônicos</strong> no último mês. Sem o anúncio, esse fluxo retrocede aos <strong>7 contatos residuais</strong> anteriores ao M360.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-rose-100 shadow-sm">
+                        <div class="flex items-center gap-2 text-amber-600 font-bold text-sm mb-2">
+                            <i data-lucide="calendar-clock" class="w-4 h-4"></i> Oportunidade na Agenda
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Atualmente constam <strong>11 horários livres</strong> nos próximos 14 dias. Manter a campanha ativa é o motor que preenche esses espaços ociosos com consultas particulares de alto valor.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-6 p-4 rounded-xl bg-teal-900 text-teal-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <i data-lucide="lightbulb" class="w-6 h-6 text-amber-400 shrink-0"></i>
+                        <p class="text-xs leading-relaxed">
+                            <strong>Recomendação da Assessoria:</strong> A conta atingiu maturidade técnica máxima em leilão. Ajustar pequenas disponibilidades de agenda e focar nos nichos de alta margem (TEA/TDAH) maximiza o faturamento sem necessidade de aumento de verba.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RODAPÉ CORPORATIVO -->
+        <footer class="pt-8 pb-4 text-center print-break-inside-avoid">
+            <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-6"></div>
+            <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest flex items-center justify-center gap-2">
+                <i data-lucide="compass" class="w-4 h-4"></i> Mídias 360 &bull; Doctoralia Partner
+            </p>
+            <p class="text-xs text-slate-400 mt-2">Consultoria de Performance e Inteligência de Marketing Médico &bull; Assessora: Marcela Miranda</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    
+    <script>
+        lucide.createIcons();
+        Chart.register(ChartDataLabels);
+        
+        const ctx = document.getElementById('ctrChart').getContext('2d');
+        const ctrChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Média de Mercado Google (Saúde)', 'Dr. Mateus B. Bortolozzo (Campanhas M360)'],
+                datasets: [{
+                    label: 'Taxa de Cliques (CTR)',
+                    data: [3.17, 5.68],
+                    backgroundColor: ['#e2e8f0', '#0d9488'],
+                    borderRadius: 10,
+                    borderSkipped: false,
+                    barThickness: 65
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#0f172a',
+                        padding: 12,
+                        titleFont: { family: "'Plus Jakarta Sans', sans-serif", size: 13 },
+                        bodyFont: { family: "'Plus Jakarta Sans', sans-serif", size: 14, weight: 'bold' },
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) { return context.parsed.y + '% de cliques nas pesquisas'; }
+                        }
+                    },
+                    datalabels: {
+                        color: ['#64748b', '#ffffff'],
+                        anchor: 'end',
+                        align: 'bottom',
+                        offset: 12,
+                        font: { family: "'Plus Jakarta Sans', sans-serif", weight: 'bold', size: 16 },
+                        formatter: function(value) { return value + '%'; }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 8,
+                        grid: { color: '#f1f5f9', drawBorder: false },
+                        ticks: {
+                            font: { family: "'Plus Jakarta Sans', sans-serif" },
+                            color: '#94a3b8',
+                            callback: function(value) { return value + '%'; }
+                        },
+                        border: { display: false }
+                    },
+                    x: {
+                        grid: { display: false, drawBorder: false },
+                        ticks: {
+                            font: { family: "'Plus Jakarta Sans', sans-serif", weight: '600' },
+                            color: '#475569'
+                        },
+                        border: { display: false }
+                    }
+                },
+                animation: { duration: 1500, easing: 'easeOutQuart' }
+            }
+        });
+    </script>
+</body>
+</html>
